@@ -1,10 +1,6 @@
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
-[[plugins]] # toml syntax
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
 # NERDTreeを設定
 [[plugins]]
 repo = 'scrooloose/nerdtree'
@@ -20,38 +16,33 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 
-# カッコやdef〜endの入力保管
-#[[plugins]]
-#repo = 'kana/vim-smartinput'
-#on_ft = 'ruby'
 
 # カラースキーマ
 [[plugins]]
 repo = 'mrkn/mrkn256.vim'
-hook_add = '''
-colorscheme mrkn256
-syntax enable
-'''
 
 # タグジャンプ用タグバー
 [[plugins]]
 repo = 'majutsushi/tagbar'
+hook_add = '''
+nmap <F8> :TagbarToggle<CR>
+'''
 
 # ステータスライン強化
 # PHPはPSR-1,2に準拠しているかのチェック
 # phpcsへのパスはcomposerでインストールした場合に設定
 [[plugins]]
 repo = 'w0rp/ale'
-on_ft = ['ruby']
+on_ft = ['ruby', 'php']
 [[plugins]]
 repo = 'itchyny/lightline.vim'
-on_ft = ['ruby']
+on_ft = ['ruby','php']
 [[plugins]]
 repo = 'lambdalisue/gina.vim'
-on_ft = ['ruby']
+on_ft = ['ruby', 'php']
 [[plugins]]
 repo = 'maximbaz/lightline-ale'
-on_ft = ['ruby']
+on_ft = ['ruby', 'php']
 hook_add = '''
 let g:ale_linters = {
   \ 'php': ['phpcs', 'php'],
@@ -148,5 +139,3 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesEven  ctermbg=140
 let g:indent_guides_enable_on_vim_startup=1
 let g:indent_guides_guide_size=1
 '''
-
-#補完
