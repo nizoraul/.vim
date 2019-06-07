@@ -16,10 +16,13 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = 1
 [[plugins]]
 repo = 'junegunn/vim-easy-align'
 
-
 # カラースキーマ
 [[plugins]]
 repo = 'mrkn/mrkn256.vim'
+hook_add = '''
+colorscheme mrkn256
+syntax enable
+'''
 
 # タグジャンプ用タグバー
 [[plugins]]

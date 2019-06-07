@@ -33,54 +33,28 @@ repo = 'Shougo/deoplete.nvim'
 on_i = 1
 hook_add = '''
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#auto_complete_delay = 0
-inoremap <expr><tab> pumvisible() ? "\<C-n>" :
-        \ neosnippet#expandable_or_jumpable() ?
-        \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
+let g:deoplete#auto_completion_start_length = 1
+inoremap <silent><expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+inoremap <silent><expr><s-tab> pumvisible() ? "\<c-p>" : "\<s-tab>"
 '''
-on_i = 1
 
 # vim8でdeopleteを使うのに必要
 [[plugins]]
 repo = 'roxma/nvim-yarp'
-on_ft = ['ruby', 'php']
 
 # vim8でdeopleteを使うのに必要
 [[plugins]]
 repo = 'roxma/vim-hug-neovim-rpc'
-on_ft = ['ruby', 'php']
 
 # スニペット
+# ruby
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
+repo = 'takkii/Bignyanco'
+
+# php
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
-[[plugins]]
-repo = 'Shougo/neosnippet.vim'
+repo = 'lvht/phpcd.vim'
 hook_add = '''
-" Plugin key-mappings.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-
-" SuperTab like snippets behavior.
-" Note: It must be "imap" and "smap".  It uses <Plug> mappings.
-"imap <expr><TAB>
-" \ pumvisible() ? "\<C-n>" :
-" \ neosnippet#expandable_or_jumpable() ?
-" \    "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-smap <expr><TAB> neosnippet#expandable_or_jumpable() ?
-\ "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
-
-" For conceal markers.
-if has('conceal')
-  set conceallevel=2 concealcursor=niv
-endif
-
-" Tell Neosnippet about the other snippets
-let g:neosnippet#snippets_directory='~/.cache/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets'
+let g:deoplete#ignore_sources = get(g:, 'deoplete#ignore_sources', {})
+let g:deoplete#ignore_sources.php = ['omni']
 '''
-
-
-
